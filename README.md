@@ -25,7 +25,6 @@ make migrate
 
 xdebug port 9001.
 
-
-usuarios no banco de dados
-user 1 = store, balance = 50
-user 2 = comum, balance = 100
+## Usuários no migration
+- user 1 = store, balance = 50
+- user 2 = comum, balance = 100
