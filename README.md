@@ -21,10 +21,10 @@ make run
 make migrate
 ```
 
-4 - Enjoy, a aplicação devera estar funcionando em [http://localhost:8080] http://localhost:8080
+4 - Enjoy, a aplicação devera estar funcionando em [localhost]: http://localhost:8080
 
 xdebug port 9001.
 
-## Usuários no migration
+## List of users on database
 - user 1 = store, balance = 50
 - user 2 = comum, balance = 100
