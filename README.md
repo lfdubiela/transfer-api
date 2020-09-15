@@ -21,7 +21,7 @@ make run
 make migrate
 ```
 
-4 - Enjoy, a aplicação devera estar funcionando em [localhost]: http://localhost:8080
+4 - Enjoy, a aplicação devera estar funcionando em [localhost](http://localhost:8080)
 
 xdebug port 9001.
 
