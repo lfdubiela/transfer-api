@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         verbose="true"
+         colors="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuite name="TransferAPI - Testsuite">
+        <directory>tests/</directory>
+    </testsuite>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">src/Application/Actions/Wallet/</directory>
+            <directory suffix=".php">src/Application/Actions/Wallet/</directory>
+            <directory suffix=".php">src/Application/Handlers/</directory>
+            <directory suffix=".php">src/Application/Service/Wallet/</directory>
+            <directory suffix=".php">src/Domain/Wallet/</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="junit" target="report/coverage.xml"/>
+        <log type="coverage-html" target="report/html/"/>
+        <log type="coverage-clover" target="report/clover.xml"/>
+    </logging>
+</phpunit>

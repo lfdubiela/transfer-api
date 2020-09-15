@@ -1,0 +1,51 @@
+version: '3.7'
+
+volumes:
+    logs:
+        driver: local
+
+services:
+    user-mysql:
+        image: mysql:8.0
+        container_name: user-mysql
+        working_dir: /application
+        volumes:
+            - .:/application
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=user-db
+            - MYSQL_USER=name
+            - MYSQL_PASSWORD=password
+        ports:
+            - "8081:3306"
+        networks:
+            - my-network
+
+    webserver:
+        image: nginx:alpine
+        container_name: user-webserver
+        working_dir: /application
+        volumes:
+            - .:/application
+            - ./resources/phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        ports:
+            - "8080:80"
+        networks:
+            - my-network
+
+    php-fpm:
+        build: resources/phpdocker/php-fpm
+        container_name: user-php-fpm
+        working_dir: /application
+        volumes:
+            - .:/application
+            - ./resources/phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+            - ./resources/phpdocker/php-fpm/xdebug.ini:/etc/php/7.4/fpm/conf.d/20-xdebug.ini
+        environment:
+            PHP_IDE_CONFIG: "serverName=transfer-api"
+        networks:
+            - my-network
+
+networks:
+    my-network:
+
