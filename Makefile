@@ -4,7 +4,7 @@ DOCKER_FLYWAY_MIGRATIONS_VOLUME=-v ${PWD}/resources/migrations/sql:/flyway/sql
 DOCKER_FLYWAY_CONF_VOLUME=-v ${PWD}/resources/migrations/conf:/flyway/conf
 DOCKER_FLYWAY=flyway/flyway:6.5.5
 DOCKER_FLYWAY_RUN=docker run --rm ${DOCKER_FLYWAY_MIGRATIONS_VOLUME} ${DOCKER_FLYWAY_CONF_VOLUME} --network=user_my-network ${DOCKER_FLYWAY}
-DOCKER_PHP=docker exec -it user-php-fpm
+DOCKER_PHP=docker exec -it wallet-php-fpm
 
 COMPOSER_PATH = vendor
 
@@ -18,11 +18,11 @@ update:
 
 # Remove containers
 remove:
-	- docker rm user-mysql user-php-fpm user-webserver
+	- docker rm wallet-mysql wallet-php-fpm wallet-webserver
 
 # Stop Containers
 stop:
-	- docker stop user-mysql user-php-fpm user-webserver
+	- docker stop wallet-mysql wallet-php-fpm wallet-webserver
 
 # Flyway migrate
 migrate:

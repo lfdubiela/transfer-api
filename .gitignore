@@ -1,0 +1,9 @@
+.idea/
+.vscode/
+/coverage/
+/report/*
+/vendor/
+/logs/*
+!/logs/README.md
+.phpunit.result.cache
+composer.lock

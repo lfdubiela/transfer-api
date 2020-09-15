@@ -17,11 +17,11 @@ return function (ContainerBuilder $containerBuilder) {
                 ],
 
                 'connection' => [
-                    'host'     => 'user-mysql',
+                    'host'     => 'wallet-mysql',
                     'port'     => 3306,
                     'user'     => 'root',
                     'password' => 'root',
-                    'dbname'   => 'user-db',
+                    'dbname'   => 'wallet-db',
                     'driver'   => 'pdo_mysql',
                     'charset'  => 'utf8',
                 ],

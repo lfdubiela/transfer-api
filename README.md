@@ -1,15 +1,31 @@
-# Slim Framework 4 Skeleton Application
-
-[![Coverage Status](https://coveralls.io/repos/github/slimphp/Slim-Skeleton/badge.svg?branch=master)](https://coveralls.io/github/slimphp/Slim-Skeleton?branch=master)
-
-Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation. It also uses the Monolog logger.
-
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
-
 ## Install the Application
 
-Run this command from the directory in which you want to install your new Slim Framework application.
+1 - Atualize/Installe as dependencias do composer
 
 ```bash
-composer create-project slim/slim-skeleton [my-app-name]
+make update
 ```
+
+2 - Rode a aplicação, o comando irá subir os tres dockers que a aplicação necessita para funcionar
+    - wallet-mysql
+    - wallet-php-fpm
+    - wallet-webserver
+
+```bash
+make run
+```
+
+3 - Execute a migração, esse comando irá configurar as migrações contidas em resources/migrations/sql
+
+```bash
+make migrate
+```
+
+4 - Enjoy, a aplicação devera estar funcionando em [http://localhost:8080] http://localhost:8080
+
+xdebug port 9001.
+
+
+usuarios no banco de dados
+user 1 = store, balance = 50
+user 2 = comum, balance = 100

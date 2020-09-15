@@ -5,15 +5,15 @@ volumes:
         driver: local
 
 services:
-    user-mysql:
+    wallet-mysql:
         image: mysql:8.0
-        container_name: user-mysql
+        container_name: wallet-mysql
         working_dir: /application
         volumes:
             - .:/application
         environment:
             - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_DATABASE=user-db
+            - MYSQL_DATABASE=wallet-db
             - MYSQL_USER=name
             - MYSQL_PASSWORD=password
         ports:
@@ -23,7 +23,7 @@ services:
 
     webserver:
         image: nginx:alpine
-        container_name: user-webserver
+        container_name: wallet-webserver
         working_dir: /application
         volumes:
             - .:/application
@@ -35,7 +35,7 @@ services:
 
     php-fpm:
         build: resources/phpdocker/php-fpm
-        container_name: user-php-fpm
+        container_name: wallet-php-fpm
         working_dir: /application
         volumes:
             - .:/application
